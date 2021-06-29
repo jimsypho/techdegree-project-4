@@ -6,9 +6,10 @@ const logPhrase = (phrase) => {
     console.log(`Phrase - phrase: `, phrase.phrase);
 };
 
-const game = new Game();
+let game;
 const startGameButton = document.querySelector('#btn__reset');
 startGameButton.addEventListener('click', (e) => {
+    game = new Game();
     game.startGame();
 });
 

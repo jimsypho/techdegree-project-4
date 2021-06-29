@@ -6,7 +6,7 @@
      constructor(missed, phrases, activePhrase) {
          this.missed = 0;
          this.phrases = this.createPhrases();
-         this.activePhrase = 'null';
+         this.activePhrase = null;
      }
      // Update this code to add new phrase options to the game
      createPhrases() {
@@ -86,9 +86,15 @@
         this.missed = 0;
         if (this.checkForWin() === true) {
             gameOverMessage.textContent = 'You won the game!';
+            overlay.classList.remove('start');
+            overlay.classList.remove('lose');
+            overlay.classList.add('win');
             this.resetGame();
         } else {
             gameOverMessage.textContent = 'Sorry, you lost the game...';
+            overlay.classList.remove('start');
+            overlay.classList.remove('win');
+            overlay.classList.add('lose');
             this.resetGame();
         }
      }
